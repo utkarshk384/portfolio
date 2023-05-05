@@ -1,11 +1,12 @@
 /* CSS */
 import "./globals.css";
 
-import { CSSProperties, useMemo } from "react";
+import { CSSProperties, useEffect, useMemo } from "react";
 import { Raleway, Cookie } from "next/font/google";
 
 /* Hooks */
-import { DarkClientComponent } from "@/src/hooks";
+import { Navigation } from "@/layouts/navigation";
+import { SideEffects } from "./sideeffect";
 
 /* Fonts */
 const cookie = Cookie({
@@ -43,8 +44,11 @@ export default function RootLayout(props: Props) {
 
   return (
     <html lang="en" style={fontVariables}>
-      <DarkClientComponent />
-      <body>{children}</body>
+      <SideEffects />
+      <body className="bg-base-100 !pointer-events-auto transition-all duration-200 ease-linear">
+        <Navigation />
+        {children}
+      </body>
     </html>
   );
 }

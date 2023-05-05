@@ -1,12 +1,27 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./layouts/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
+      screens: {
+        xs: "420px",
+      },
+      colors: {
+        primary: "var(--primary)",
+        accent: "var(--accent)",
+        "accent-alternate": "var(--accent-alternate)",
+        "base-100": "var(--base-100)",
+        content: "var(--content)",
+        "content-alternate": "var(--content-alternate)",
+      },
+
       fontFamily: {
         cookie: ["var(--font-cookie)"],
         raleway: ["var(--font-raleway)"],
@@ -18,30 +33,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require("daisyui")],
-  daisyui: {
-    prefix: "daisy-",
-    themes: [
-      {
-        dark: {
-          primary: "#4088BF",
-          secondary: "#155E7E",
-          accent: "#FFC933",
-          "base-100": "#13314B",
-          "--rounded-box": "0.5rem",
-          "--rounded-btn": "0.5rem",
-          "--rounded-badge": "9999px",
-        },
-        light: {
-          primary: "#40F",
-          secondary: "#17E",
-          accent: "#FFC933",
-          "base-100": "#13314B",
-          "--rounded-box": "0.5rem",
-          "--rounded-btn": "0.5rem",
-          "--rounded-badge": "9999px",
-        },
-      },
-    ],
+  plugins: [require("./plugins/typography"), require("./plugins/containers")],
+  corePlugins: {
+    container: false,
   },
 };

@@ -1,3 +1,10 @@
+/* Layouts */
+import { HeroSection } from "@/layouts/hero";
+
 export default function Home() {
-  return <main className="w-full h-screen bg-primary"></main>;
+  return (
+    <main>
+      <HeroSection />
+    </main>
+  );
 }
