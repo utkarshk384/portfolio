@@ -6,13 +6,20 @@ import { useNavigationStore } from "@/src/stores";
 
 /* Animations */
 import { HamburgerAnim } from "../animations";
+import useWindowSize from "@/src/hooks/useWindowSize";
 
 export const Hamburger: React.FC = () => {
+  /* Store */
   const { isDrawerOpen, setDrawerOpen } = useNavigationStore();
 
+  /* Hooks */
+  const { sizes, bp } = useWindowSize();
+
+  /* Refs */
   const rootRef = useRef<HTMLButtonElement>(null);
   let timeline = useRef<gsap.core.Timeline | null>(null);
 
+  /* Effects */
   useEffect(() => {
     let ctx = gsap.context(() => {
       timeline.current = gsap.timeline({ paused: true });
@@ -23,14 +30,17 @@ export const Hamburger: React.FC = () => {
   }, []);
 
   useEffect(() => {
+    if (sizes.width > bp.md) setDrawerOpen(false);
+  }, [bp.md, setDrawerOpen, sizes.width]);
+
+  useEffect(() => {
     if (isDrawerOpen) timeline.current?.play();
     else timeline.current?.reverse();
   }, [isDrawerOpen]);
 
-  useEffect(() => {
-    console.log({ isDrawerOpen });
-  }, [isDrawerOpen]);
-  const handleClick = (): void => {
+  /* Handlers */
+  const handleClick = (e: React.MouseEvent): void => {
+    e.preventDefault();
     setDrawerOpen(!isDrawerOpen);
   };
 

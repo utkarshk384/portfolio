@@ -5,21 +5,19 @@
 @layer base {
 
   html[data-theme=dark]{
-    --primary: #4088BF;
-    --accent: #FFC933;
-    --accent-alternate: #FFC933;
-    --content: #EBEBEB;
-    --content-alternate: #EBEBEB;
-    --base-100: #13314B; 
+    --primary: rgb(64, 136, 191);
+    --base-100: rgb(19, 49, 75);
+    --accent: rgb(255, 201, 91);
+    --text: rgb(235, 235, 235);
+    --gradient: linear-gradient(180deg, #4088BF 0%, #155E7E 52.60%, #0D223A 100%, #0D223A 100%);
   }
 
   html[data-theme=light]{
-    --primary: #5CB2F4;
-    --accent: #EF6F6C;
-    --accent-alternate: #D14B47;
-    --content: #13314B;
-    --content-alternate: #EBEBEB;
-    --base-100: #9CBED8; 
+    --primary: rgb(60, 149, 217);
+    --base-100: rgb(156, 190, 216);
+    --accent: rgb(250, 204, 21);
+    --text: rgb(19, 49, 75);
+    --gradient: linear-gradient(180deg, #3C95D9 0%, #206192 50%, #0D223A 100%, #1C537D 100%);
   }
 
 }

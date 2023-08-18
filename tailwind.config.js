@@ -16,10 +16,8 @@ module.exports = {
       colors: {
         primary: "var(--primary)",
         accent: "var(--accent)",
-        "accent-alternate": "var(--accent-alternate)",
         "base-100": "var(--base-100)",
-        content: "var(--content)",
-        "content-alternate": "var(--content-alternate)",
+        content: "var(--text)",
       },
 
       fontFamily: {
@@ -27,6 +25,7 @@ module.exports = {
         raleway: ["var(--font-raleway)"],
       },
       backgroundImage: {
+        "gradient-bg": "var(--gradient)",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",

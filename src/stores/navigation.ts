@@ -11,7 +11,7 @@ type NavigationState = {
 
 export const useNavigationStore = create<NavigationState>((set) => ({
   isDrawerOpen: false,
-  setDrawerOpen: (val) => set({ isDrawerOpen: val }),
+  setDrawerOpen: (val) => set((state) => ({ ...state, isDrawerOpen: val })),
   route: "home",
-  setRoute: (route) => set({ route }),
+  setRoute: (route) => set((state) => ({ ...state, route })),
 }));

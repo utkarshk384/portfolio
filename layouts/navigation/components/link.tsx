@@ -30,7 +30,7 @@ export const Link: React.FC<LinkProps> = (props) => {
     <a
       href={props.route}
       onClick={handler}
-      className={`${className} ${
+      className={`${className} font-cookie ${
         route === props.route.replace("/", "")
           ? "text-accent font-bold"
           : "text-content"

@@ -2,7 +2,7 @@
 import "./globals.css";
 
 import { CSSProperties, useEffect, useMemo } from "react";
-import { Raleway, Cookie } from "next/font/google";
+import { Raleway, Cookie } from "@next/font/google";
 
 /* Hooks */
 import { Navigation } from "@/layouts/navigation";

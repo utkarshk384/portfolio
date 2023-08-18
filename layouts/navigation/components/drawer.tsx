@@ -23,7 +23,6 @@ export const MobileDrawer: React.FC<Props> = (props) => {
 
   /* Stores */
   const { isDrawerOpen, setDrawerOpen } = useNavigationStore();
-  const { toggleTheme } = useThemeStore();
 
   /* Refs */
   const drawerRef = useRef<HTMLDivElement | null>(null);
@@ -56,10 +55,7 @@ export const MobileDrawer: React.FC<Props> = (props) => {
         setDrawerOpen={setDrawerOpen}
         onMount={onMountAnimation}
       >
-        <div
-          className="flex flex-col items-center gap-10 p-4 text-subheading-2"
-          onClick={() => toggleTheme()}
-        >
+        <div className="flex flex-col items-center gap-10 p-4 text-subheading-2">
           <Link className="mobile-links" route="/home" text="Home" />
           <Link className="mobile-links" route="/about" text="About" />
           <Link
