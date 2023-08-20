@@ -38,7 +38,13 @@ export const Navigation: React.FC<Props> = (props) => {
 
   useEffect(() => {
     GsapAnimation(tl.current, isDark);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (isDark) tl.current.reverse();
+    else tl.current.play(0);
+  }, [isDark]);
 
   useEffect(() => {
     const path = window.location.pathname;
@@ -66,15 +72,7 @@ export const Navigation: React.FC<Props> = (props) => {
       <div className="w-full">
         <div className="container flex items-center justify-between p-0">
           <div className="flex items-stretch gap-4">
-            <AnimatedBulb
-              ref={bulbRef}
-              onClick={(e) => {
-                toggleTheme();
-                console.log(tl.current.progress());
-                if (tl.current.progress() === 1) tl.current.reverse();
-                else tl.current.play(0);
-              }}
-            />
+            <AnimatedBulb ref={bulbRef} onClick={(e) => toggleTheme()} />
             <p className="flex flex-col pt-4 text-navigation">
               <span className="block h-1/2 text-content">{`Utkarsh's`}</span>
               <span id="dynamic-text" className="block text-accent">
