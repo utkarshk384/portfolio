@@ -18,6 +18,8 @@ module.exports = {
         accent: "var(--accent)",
         "base-100": "var(--base-100)",
         content: "var(--text)",
+        "neutral-gray": "var(--neutral-gray)",
+        "neutral-white": "var(--neutral-white)",
       },
 
       fontFamily: {

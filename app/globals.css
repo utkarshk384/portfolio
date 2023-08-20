@@ -4,6 +4,11 @@
 
 @layer base {
 
+  :root{
+    --neutral-gray: rgb(197, 208, 217);
+    --neutral-white: rgb(235, 235, 235);
+  }
+
   html[data-theme=dark]{
     --primary: rgb(64, 136, 191);
     --base-100: rgb(19, 49, 75);
