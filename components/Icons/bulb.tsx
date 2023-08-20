@@ -7,7 +7,6 @@ export const AnimatedBulb: React.FC<Props> = (props) => {
   const { className, ...rest } = props;
 
   const [isDark] = useThemeStore((s) => [s.isDark]);
-  console.log({ darK: isDark });
   return (
     <svg
       id="bulb--svg--icon"
