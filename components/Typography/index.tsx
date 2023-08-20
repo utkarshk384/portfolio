@@ -53,6 +53,7 @@ export const Heading: React.FC<HeadingProps> = (props) => {
     size = "44",
     weight = "700",
     color = "content",
+    ...rest
   } = props;
 
   return (
@@ -62,6 +63,7 @@ export const Heading: React.FC<HeadingProps> = (props) => {
       weight={weight}
       as={as}
       className={className}
+      {...rest}
     >
       {props.children}
     </StyledTypography>
