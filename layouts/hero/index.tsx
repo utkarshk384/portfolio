@@ -19,13 +19,15 @@ export const HeroSection: React.FC<Props> = (props) => {
   const {} = props;
 
   return (
-    <div id="#portfolio" className="container relative h-[80vh]">
-      <div className="pt-48 main-container text-primary">
-        <LightDarkIcon />
-        <Heading>Hey there 👋, I am Utkarsh Kumar a</Heading>
-        <HeroText />
-        <HeroWave />
+    <div className="relative h-[80vh]">
+      <div id="#portfolio" className="container ">
+        <div className="pt-48 main-container text-primary">
+          <LightDarkIcon />
+          <Heading>Hey there 👋, I am Utkarsh Kumar a</Heading>
+          <HeroText />
+        </div>
       </div>
+      <HeroWave />
     </div>
   );
 };

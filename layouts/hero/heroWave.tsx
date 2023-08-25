@@ -13,7 +13,7 @@ export const HeroWave: React.FC = () => {
 
   return (
     <div
-      className="bottom-0 w-full scale-125 -z-1"
+      className="absolute bottom-0 w-full -z-1"
       style={{
         marginBottom: sizes.width > bp.lg ? "-0.1rem" : "0.5rem",
       }}

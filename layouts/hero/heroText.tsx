@@ -25,9 +25,6 @@ type Props = {
 export const HeroText: React.FC<Props> = (props) => {
   const {} = props;
 
-  /* States */
-  const [index, setIndex] = useState(0);
-
   /* Refs */
   const animationRef = useRef<HTMLDivElement | null>(null);
 

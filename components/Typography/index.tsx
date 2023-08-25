@@ -12,7 +12,7 @@ type BaseProps = {
   color?: FontColors;
   textCase?: TextCases;
   className?: string;
-};
+} & React.HTMLAttributes<HTMLHeadingElement | HTMLParagraphElement>;
 
 type TextProps = {
   as?: "p" | "span";
