@@ -1,6 +1,6 @@
 import React from "react";
 
-export type Props = React.SVGProps<SVGSVGElement>;
+type Props = React.SVGProps<SVGSVGElement>;
 
 export const SunIcon: React.FC<Props> = (props) => {
   return (

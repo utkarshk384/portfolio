@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export type Props = React.SVGProps<SVGSVGElement>;
+type Props = React.SVGProps<SVGSVGElement>;
 
 export const MoonIcon: React.FC<Props> = (props) => (
   <svg

@@ -15,7 +15,7 @@ type BaseProps = {
 } & React.HTMLAttributes<HTMLHeadingElement | HTMLParagraphElement>;
 
 type TextProps = {
-  as?: "p" | "span";
+  as?: "p" | "span" | "li";
 } & BaseProps;
 
 type HeadingProps = {

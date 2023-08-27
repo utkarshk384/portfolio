@@ -9,6 +9,7 @@ export default function Home() {
         <div className="container">
           <Line />
           <AboutMe />
+          <Experience />
           <br />
           <br />
           <br />
