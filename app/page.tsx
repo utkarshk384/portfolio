@@ -1,5 +1,6 @@
 /* Layouts */
-import { Line, AboutMe, HeroSection, Experience } from "@/layouts";
+import { Line, AboutMe, HeroSection, Experience, Projects } from "@/layouts";
+import { UnderConstruction } from "./underconstruction";
 
 export default function Home() {
   return (
@@ -9,82 +10,11 @@ export default function Home() {
         <div className="container">
           <Line />
           <AboutMe />
-          <Experience />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
+          <div className="relative">
+            <Experience />
+            <UnderConstruction />
+            {/* <Projects /> */}
+          </div>
         </div>
       </div>
     </main>

@@ -27,6 +27,7 @@ export const Section: React.FC<Props> = (props) => {
         <Heading
           className="pl-12"
           id={titleId}
+          as="h2"
           size="64"
           color="accent"
           weight="700"

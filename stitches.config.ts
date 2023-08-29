@@ -10,6 +10,10 @@ export const { styled, css, globalCss, keyframes, getCssText, theme } =
         content: "var(--text)",
         "neutral-gray": "var(--neutral-gray)",
         "neutral-white": "var(--neutral-white)",
+        "neutral-black": "var(--neutral-black)",
+        yellow: "#FACC15",
+        "dark-blue": "#13314B",
+        black: "#ffffff",
       },
       fontSizes: {
         64: "4em", // 64px

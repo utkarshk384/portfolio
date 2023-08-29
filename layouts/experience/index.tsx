@@ -58,28 +58,6 @@ export const Experience: React.FC<Props> = (props) => {
         position="Backend Developer Intern"
         technologies={["Express", "Go", "AWS", "Django", "Javascript", "Mysql"]}
       />
-      <ExperienceItem
-        logoUrl="/my-picture.webp"
-        description={[
-          "Created a notification system from scratch that is being used by the sales team.",
-          "Add trash functionality in the labs of the product. This makes it possible to delete an item and store it in the trash bin.",
-          "Added referral system which shows the user how many users has he/her referred.",
-        ]}
-        duration="Jan 2021 - Present"
-        position="Backend Developer Intern"
-        technologies={["Express", "Go", "AWS", "Django", "Javascript", "Mysql"]}
-      />
-      <ExperienceItem
-        logoUrl="/my-picture.webp"
-        description={[
-          "Created a notification system from scratch that is being used by the sales team.",
-          "Add trash functionality in the labs of the product. This makes it possible to delete an item and store it in the trash bin.",
-          "Added referral system which shows the user how many users has he/her referred.",
-        ]}
-        duration="Jan 2021 - Present"
-        position="Backend Developer Intern"
-        technologies={["Express", "Go", "AWS", "Django", "Javascript", "Mysql"]}
-      />
     </Section>
   );
 };

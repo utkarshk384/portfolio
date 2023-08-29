@@ -5,7 +5,7 @@ export const SectionContainer = styled("div", {
   paddingTop: "3rem",
 });
 
-export const SectionTitleContainer = styled("h2", {
+export const SectionTitleContainer = styled("div", {
   position: "relative",
   display: "flex",
   "&::before": {

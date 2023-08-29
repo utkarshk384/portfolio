@@ -7,6 +7,7 @@
   :root{
     --neutral-gray: rgb(197, 208, 217);
     --neutral-white: rgb(235, 235, 235);
+    --neutral-black: rgb(30, 30, 30);
   }
 
   html[data-theme=dark]{

@@ -20,6 +20,7 @@ module.exports = {
         content: "var(--text)",
         "neutral-gray": "var(--neutral-gray)",
         "neutral-white": "var(--neutral-white)",
+        "neutral-black": "var(--neutral-black)",
       },
 
       fontFamily: {
