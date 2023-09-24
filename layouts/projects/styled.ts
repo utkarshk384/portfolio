@@ -23,7 +23,6 @@ const Details = styled("div", {
 const TitleWrapper = styled("div", {
   cursor: "pointer",
   display: "flex",
-  borderBottom: "1px solid $yellow",
   paddingBottom: "0.2rem",
   gap: "0.5rem",
 });
@@ -31,9 +30,6 @@ const TitleWrapper = styled("div", {
 const ImageWrapper = styled("div", {
   display: "flex",
   position: "relative",
-  ".carousel-root": {
-    overflow: "visible !important",
-  },
 });
 
 StyledProjectItem.Container = Container;

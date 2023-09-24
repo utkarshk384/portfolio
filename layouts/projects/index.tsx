@@ -127,6 +127,7 @@ export const ProjectItem: React.FC<ProjectItemProps> = (props) => {
       </StyledProjectItem.Details>
       <StyledProjectItem.ImageWrapper>
         <Carousel
+          showStatus={false}
           emulateTouch
           showThumbs={false}
           renderArrowPrev={(clickHandler, hasPrev) => (

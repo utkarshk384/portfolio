@@ -8,6 +8,6 @@ export const Line: React.FC<Props> = (props) => {
   const {} = props;
 
   return (
-    <div className="absolute mt-12 top-0 w-2.5 h-full rounded-full bg-accent" />
+    <div className="absolute mt-12 top-0 w-2.5 h-[calc(100%-8.5rem)] rounded-full bg-accent" />
   );
 };

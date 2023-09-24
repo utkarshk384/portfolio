@@ -4,7 +4,11 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ["media.licdn.com"],
+    domains: [
+      "i.scdn.co",
+      "media.licdn.com",
+      "utkarshk-portfolio-images.s3.ap-southeast-1.amazonaws.com",
+    ],
   },
 
   redirects: async () => {

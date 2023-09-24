@@ -22,12 +22,16 @@ module.exports = {
         "neutral-white": "var(--neutral-white)",
         "neutral-black": "var(--neutral-black)",
       },
+      boxShadow: {
+        card: "var(--card-shadow)",
+      },
 
       fontFamily: {
         cookie: ["var(--font-cookie)"],
         raleway: ["var(--font-raleway)"],
       },
       backgroundImage: {
+        "neutral-gradient": "var(--neutral-gradient)",
         "gradient-bg": "var(--gradient)",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

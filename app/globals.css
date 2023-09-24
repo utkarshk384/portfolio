@@ -8,6 +8,8 @@
     --neutral-gray: rgb(197, 208, 217);
     --neutral-white: rgb(235, 235, 235);
     --neutral-black: rgb(30, 30, 30);
+    --neutral-gradient: linear-gradient(95deg, rgba(21, 94, 126, 0.50) 4.43%, rgba(21, 94, 126, 0.20) 97.74%);
+    --shadow-card: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   }
 
   html[data-theme=dark]{
@@ -22,8 +24,8 @@
     --primary: rgb(60, 149, 217);
     --base-100: rgb(156, 190, 216);
     --accent: rgb(250, 204, 21);
-    --text: rgb(19, 49, 75);
-    --gradient: linear-gradient(180deg, #3C95D9 0%, #206192 50%, #0D223A 100%, #1C537D 100%);
+    --text: var(--neutral-white);
+    --gradient: linear-gradient(180deg, #5CB2F4 0%, #206192 50%, #0D223A 100%, #1C537D 100%);
   }
 
 }
@@ -34,4 +36,12 @@ html[data-theme=dark] #wave path {
 
 html[data-theme=light] #wave path {
   fill: #5CB2F4;
+}
+
+.carousel.carousel-slider {
+  overflow: visible !important;
+}
+
+.slider-wrapper {
+  border-radius: 8px !important;
 }

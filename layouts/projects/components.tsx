@@ -15,12 +15,14 @@ export const CarouselButton: React.FC<CarouselBtnProps> = (props) => {
   return (
     <button
       onClick={clickHandler}
-      className={`absolute bottom-0 p-4 transform rounded-lg left-1/2 bg-accent`}
+      className={`absolute -bottom-14 ${
+        isLeft ? "-translate-x-16" : "translate-x-10"
+      } p-2 transform rounded-lg left-1/2 bg-accent`}
     >
       {isLeft ? (
-        <ChevronLeftIcon className="text-base-100" />
+        <ChevronLeftIcon width={24} height={24} className="text-base-100" />
       ) : (
-        <ChevronRightIcon className="text-base-100" />
+        <ChevronRightIcon width={24} height={24} className="text-base-100" />
       )}
     </button>
   );

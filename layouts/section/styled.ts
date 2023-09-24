@@ -18,4 +18,18 @@ export const SectionTitleContainer = styled("div", {
     backgroundColor: "$accent",
     borderRadius: "9999px",
   },
+
+  variants: {
+    isLast: {
+      true: {
+        "&::before": {
+          borderRadius: "6px",
+          height: "0.85rem",
+          width: "4rem",
+          top: "100%",
+          transform: "translate(-40%, 900%)",
+        },
+      },
+    },
+  },
 });

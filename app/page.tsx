@@ -1,6 +1,8 @@
 /* Layouts */
 import { Line, AboutMe, HeroSection, Experience, Projects } from "@/layouts";
 import { UnderConstruction } from "./underconstruction";
+import { Tooling } from "@/layouts/tooling";
+import { Footer } from "@/layouts/footer";
 
 export default function Home() {
   return (
@@ -12,8 +14,9 @@ export default function Home() {
           <AboutMe />
           <div className="relative">
             <Experience />
-            <UnderConstruction />
-            {/* <Projects /> */}
+            <Projects />
+            <Tooling />
+            <Footer />
           </div>
         </div>
       </div>
