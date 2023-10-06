@@ -1,8 +1,10 @@
-import { styled } from "@stitches/react";
+import { styled } from "@/styles/stitches";
 
 export const ExperienceMarkerContainer = styled("div", {
   position: "relative",
   display: "flex",
+  flexDirection: "column",
+
   gap: "0.5rem",
   "&::before": {
     content: "",
@@ -14,5 +16,9 @@ export const ExperienceMarkerContainer = styled("div", {
     height: "0.5rem",
     backgroundColor: "$accent",
     borderRadius: "9999px",
+  },
+
+  "@xs": {
+    flexDirection: "row",
   },
 });

@@ -7,6 +7,15 @@ interface Iconfig {
   height: number;
 }
 
+type SizesType = {
+  xs: any;
+  sm: any;
+  md: any;
+  lg: any;
+  xl: any;
+  "2xl": any;
+};
+
 export default function useWindowSize() {
   const [windowSize, setWindowSize] = useState<Iconfig>({
     width: 0,
@@ -15,7 +24,7 @@ export default function useWindowSize() {
 
   const breakpoints = useMemo(
     () => ({
-      xs: 450,
+      xs: 420,
       sm: 640,
       md: 768,
       lg: 1024,
@@ -54,5 +63,19 @@ export default function useWindowSize() {
     return () => window.removeEventListener("resize", handleResize);
   }, []); // Empty array ensures that effect is only run on mount
 
-  return { sizes: windowSize, bp: breakpoints };
+  /* Handlers */
+  const setBPStyles = (sizes: SizesType) => {
+    const bps = ["xs", "sm", "md", "lg", "xl", "2xl"] as const;
+    let result = "";
+    bps.forEach((bp) => {
+      const value = sizes[bp];
+      if (typeof value === "undefined") return;
+
+      if (windowSize.width < breakpoints[bp]) result = value;
+    });
+
+    return result;
+  };
+
+  return { sizes: windowSize, bp: breakpoints, setBPStyles };
 }

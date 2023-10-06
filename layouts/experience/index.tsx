@@ -75,10 +75,10 @@ export const ExperienceItem: React.FC<ExperienceItemProps> = (props) => {
   return (
     <div className="flex flex-col gap-4">
       <ExperienceMarkerContainer>
-        <div className="overflow-hidden rounded-lg">
+        <div className="flex items-center min-w-[7.8125rem] overflow-hidden rounded-lg">
           <Image
-            width={100}
-            height={100}
+            width={125}
+            height={125}
             alt="Company logo"
             src={props.logoUrl}
           />
@@ -87,10 +87,13 @@ export const ExperienceItem: React.FC<ExperienceItemProps> = (props) => {
           <Heading weight="700" size="32">
             {props.position}
           </Heading>
+          <Heading weight="700" size="24">
+            Qwikskills
+          </Heading>
           <Text size="28">{props.duration}</Text>
         </div>
       </ExperienceMarkerContainer>
-      <div className="flex gap-4">
+      <div className="flex flex-wrap gap-4">
         {techStack.map((Tech, i) => (
           <Tech key={uniqueId + i} height={32} width={32} />
         ))}

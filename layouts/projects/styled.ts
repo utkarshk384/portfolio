@@ -11,7 +11,13 @@ export const StyledProjectItem = {} as ProjectItemType;
 
 const Container = styled("div", {
   display: "grid",
-  gridTemplateColumns: "2fr 1fr",
+  gridTemplateRows: "1fr 1fr",
+  gap: "2rem",
+
+  "@lg": {
+    gridTemplateRows: "1fr",
+    gridTemplateColumns: "1fr 1fr",
+  },
 });
 
 const Details = styled("div", {

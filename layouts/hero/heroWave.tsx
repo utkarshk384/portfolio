@@ -12,12 +12,7 @@ export const HeroWave: React.FC = () => {
   const { playerRef, setLottie } = useLottie();
 
   return (
-    <div
-      className="absolute bottom-0 w-full -z-1"
-      style={{
-        marginBottom: sizes.width > bp.lg ? "-0.1rem" : "0.5rem",
-      }}
-    >
+    <div className="absolute bottom-0 w-full -z-1 mb-[-0.1rem]">
       <Player
         className="flex items-end z-1 lottie-color-fix"
         onEvent={(e) => e === "load" && setLottie(true)}

@@ -11,6 +11,7 @@ import { Heading, Text } from "@/components";
 import { getAccessToken, getCurrentlyPlaying } from "@/src/api";
 import { textUtils } from "@/src/utils";
 import { useGetAccessToken, useGetNowPlaying } from "@/src/api/hooks";
+import { NowPlayingContainer } from "./styled";
 
 type Props = {
   children?: React.ReactNode;
@@ -35,7 +36,7 @@ export const Footer: React.FC<Props> = (props) => {
   const {} = props;
   return (
     <Section
-      className="flex items-center justify-between pb-10 mt-4"
+      className="flex flex-wrap items-center justify-between gap-4 pb-10 mt-4 lg:gap-0"
       depth="400 Mts"
       titleText=""
       isLast
@@ -81,25 +82,37 @@ export const SpotifyPlayer = () => {
     window.open(data.songUrl, "_blank");
   };
 
+  /* Memos */
+  const artwork = useMemo(() => {
+    if (!data.artwork)
+      return {
+        size: 64,
+        fill: false,
+        src: "https://utkarshk-portfolio-images.s3.ap-southeast-1.amazonaws.com/technology-icons/spotfiy.png",
+      };
+
+    return {
+      size: undefined,
+      fill: true,
+      src: data.artwork,
+    };
+  }, [data.artwork]);
+
   return (
-    <div
-      className={`grid grid-cols-[1fr_2fr] overflow-hidden ${
+    <NowPlayingContainer
+      className={`${
         data.isPlaying ? "gap-5" : "gap-0"
-      } p-0 rounded-lg bg-neutral-gradient backdrop-blur-md shadow-card w-[20rem]`}
+      } backdrop-blur-md shadow-card`}
     >
       <button
         onClick={onClickHandler}
         className="relative grid w-full h-full overflow-hidden place-items-center"
       >
         <Image
-          width={data.isPlaying ? undefined : 64}
-          height={data.isPlaying ? undefined : 64}
-          src={
-            data.isPlaying
-              ? data.artwork
-              : "https://utkarshk-portfolio-images.s3.ap-southeast-1.amazonaws.com/technology-icons/spotfiy.png"
-          }
-          fill={data.isPlaying}
+          width={artwork.size}
+          height={artwork.size}
+          src={artwork.src}
+          fill={artwork.fill}
           alt="Spotify Logo"
           className="object-cover"
         />
@@ -110,10 +123,12 @@ export const SpotifyPlayer = () => {
             ? `${textUtils.truncate(data.name, 11)} 🎧`
             : "Utkarsh is not"}
         </Heading>
-        <Text size="18">
-          {data.isPlaying ? data.artist : "listening to music 👻"}
+        <Text size="18" title={data.artist}>
+          {data.isPlaying
+            ? textUtils.truncate(data.artist, 11)
+            : "listening to music 👻"}
         </Text>
       </div>
-    </div>
+    </NowPlayingContainer>
   );
 };

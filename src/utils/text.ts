@@ -1,7 +1,3 @@
-export function SnakeCaseToTitleCase() {}
-
-export function Capitalize(str: string) {}
-
 class TextUtils {
   public snakeCaseToTitleCase(text: string, firstLtrCapitalize = true) {
     const words = text.split("_");

@@ -67,8 +67,8 @@ export const ProjectItem: React.FC<ProjectItemProps> = (props) => {
   return (
     <StyledProjectItem.Container>
       <StyledProjectItem.Details>
-        <div className="flex flex-col gap-4">
-          <div className="flex gap-4">
+        <div className="flex flex-col flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4">
             <StyledProjectItem.TitleWrapper>
               <Text
                 size="32"

@@ -15,7 +15,7 @@ export const AboutMe: React.FC<Props> = (props) => {
   const {} = props;
   return (
     <Section depth="100 Mts" titleId="about" titleText="About Me">
-      <div className="grid grid-cols-[3fr_1fr] gap-12">
+      <div className="flex flex-col-reverse xl:grid grid-cols-[3fr_1fr] gap-12">
         <div className="flex flex-col justify-center gap-4">
           <Text weight="500" size="20">
             Hello! My name is Utkarsh Kumar a vegetarian, an musicophile and a
