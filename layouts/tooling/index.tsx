@@ -28,7 +28,12 @@ export const Tooling: React.FC<Props> = (props) => {
   const tools = useMemo(() => TOOLS, []);
 
   return (
-    <Section titleId="tooling" depth="300 Mts" titleText="Tooling">
+    <Section
+      wrapperClassName="body-line"
+      titleId="tooling"
+      depth="300 Mts"
+      titleText="Tooling"
+    >
       <div className="flex flex-col gap-12">
         <div>
           <Heading size="32" weight="600">

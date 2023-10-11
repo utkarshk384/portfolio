@@ -36,6 +36,7 @@ export const Footer: React.FC<Props> = (props) => {
   const {} = props;
   return (
     <Section
+      wrapperClassName="body-line body-line-b-rounded"
       className="flex flex-wrap items-center justify-between gap-4 pb-10 mt-4 lg:gap-0"
       depth="400 Mts"
       titleText=""

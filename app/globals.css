@@ -30,6 +30,27 @@
 
 }
 
+@layer utilities {
+  .body-line {
+    position: relative;
+  }
+  .body-line::before {
+    @apply w-2.5;
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: var(--accent);
+  }
+  .body-line-t-rounded::before {
+    @apply top-auto rounded-t;
+  }
+  .body-line-b-rounded::before {
+    /* 67.5 and 37.5 are magic numbers that looks perfect in the UI */
+    @apply top-0 lg:h-[67.5%] h-[37.5%] rounded-b; 
+  }
+}
+
 html[data-theme=dark] #wave path {
   fill: #4088BF;
 }

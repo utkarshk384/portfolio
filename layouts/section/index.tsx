@@ -14,12 +14,20 @@ type Props = {
   depth: string;
   className?: string;
   isLast?: boolean;
+  wrapperClassName?: string;
 };
 
 export const Section: React.FC<Props> = (props) => {
-  const { titleText, titleId, depth, className = "", isLast = false } = props;
+  const {
+    titleText,
+    titleId,
+    depth,
+    className = "",
+    isLast = false,
+    wrapperClassName = "",
+  } = props;
   return (
-    <SectionContainer>
+    <SectionContainer className={wrapperClassName}>
       <SectionTitleContainer isLast={isLast}>
         <div
           className={`absolute -left-5 ${

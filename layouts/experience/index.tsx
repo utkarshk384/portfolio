@@ -32,6 +32,7 @@ export const Experience: React.FC<Props> = (props) => {
   return (
     <Section
       className="flex flex-col gap-12"
+      wrapperClassName="body-line"
       depth="200 Mts"
       titleText="Experience"
       titleId="experience"

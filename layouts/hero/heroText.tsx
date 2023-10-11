@@ -34,8 +34,6 @@ export const HeroText: React.FC<Props> = (props) => {
       "Full-stack Developer",
       "UX Designer",
       "Musicophile",
-      "Musicophile",
-      "Cloud Enthusiast",
       "Cloud Enthusiast",
     ],
     []

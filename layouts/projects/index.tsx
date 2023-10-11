@@ -38,7 +38,12 @@ export const Projects: React.FC<Props> = (props) => {
   const {} = props;
 
   return (
-    <Section depth="200 Mts" titleId="projects" titleText="Projects">
+    <Section
+      wrapperClassName="body-line"
+      depth="200 Mts"
+      titleId="projects"
+      titleText="Projects"
+    >
       <ProjectItem
         description={[
           "An all in one package tracking application.",

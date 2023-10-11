@@ -1,6 +1,5 @@
 /* Layouts */
-import { Line, AboutMe, HeroSection, Experience, Projects } from "@/layouts";
-import { UnderConstruction } from "./underconstruction";
+import { AboutMe, HeroSection, Experience, Projects } from "@/layouts";
 import { Tooling } from "@/layouts/tooling";
 import { Footer } from "@/layouts/footer";
 
@@ -10,7 +9,6 @@ export default function Home() {
       <HeroSection />
       <div className="relative bg-gradient-bg">
         <div className="container">
-          <Line />
           <AboutMe />
           <div className="relative">
             <Experience />
