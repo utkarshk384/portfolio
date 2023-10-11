@@ -34,32 +34,37 @@ type ProjectItemProps = {
   projectUrl?: string;
 };
 
-export const Projects: React.FC<Props> = (props) => {
-  const {} = props;
+export const Projects = React.forwardRef<HTMLDivElement, Props>(
+  (props, ref) => {
+    const {} = props;
 
-  return (
-    <Section
-      wrapperClassName="body-line"
-      depth="200 Mts"
-      titleId="projects"
-      titleText="Projects"
-    >
-      <ProjectItem
-        description={[
-          "An all in one package tracking application.",
-          "Can be used to track packages from DTDC and Ekart.",
-          "Can view past details of the package in a digestible format.",
-        ]}
-        githubUrl="https://github.com"
-        technologies={["React", "Typescript", "Tailwind", "NextJS"]}
-        title="Ease Track"
-        images={["/my-picture.webp", "/my-picture.webp"]}
-        projectUrl="https://github.com"
-        figmaUrl="https://github.com"
-      />
-    </Section>
-  );
-};
+    return (
+      <Section
+        ref={ref}
+        wrapperClassName="body-line"
+        depth="200 Mts"
+        titleId="projects"
+        titleText="Projects"
+      >
+        <ProjectItem
+          description={[
+            "An all in one package tracking application.",
+            "Can be used to track packages from DTDC and Ekart.",
+            "Can view past details of the package in a digestible format.",
+          ]}
+          githubUrl="https://github.com"
+          technologies={["React", "Typescript", "Tailwind", "NextJS"]}
+          title="Ease Track"
+          images={["/my-picture.webp", "/my-picture.webp"]}
+          projectUrl="https://github.com"
+          figmaUrl="https://github.com"
+        />
+      </Section>
+    );
+  }
+);
+
+Projects.displayName = "Projects";
 
 export const ProjectItem: React.FC<ProjectItemProps> = (props) => {
   const technologies = useMemo(

@@ -11,10 +11,11 @@ type Props = {
   children?: React.ReactNode;
 };
 
-export const AboutMe: React.FC<Props> = (props) => {
+export const AboutMe = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
   const {} = props;
   return (
     <Section
+      ref={ref}
       wrapperClassName="body-line body-line-t-rounded"
       depth="100 Mts"
       titleId="about"
@@ -59,4 +60,6 @@ export const AboutMe: React.FC<Props> = (props) => {
       </div>
     </Section>
   );
-};
+});
+
+AboutMe.displayName = "About Me";

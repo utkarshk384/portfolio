@@ -22,15 +22,16 @@ type ToolProps = {
   url: string;
 };
 
-export const Tooling: React.FC<Props> = (props) => {
+export const Tooling = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
   const {} = props;
 
   const tools = useMemo(() => TOOLS, []);
 
   return (
     <Section
+      ref={ref}
       wrapperClassName="body-line"
-      titleId="tooling"
+      titleId="tools"
       depth="300 Mts"
       titleText="Tooling"
     >
@@ -78,7 +79,9 @@ export const Tooling: React.FC<Props> = (props) => {
       </div>
     </Section>
   );
-};
+});
+
+Tooling.displayName = "Tooling";
 
 const Tool: React.FC<ToolProps> = (props) => {
   const { name, url } = props;

@@ -14,6 +14,7 @@
 
   html[data-theme=dark]{
     --primary: rgb(64, 136, 191);
+    --base-100-rgba: 19, 49, 75;
     --base-100: rgb(19, 49, 75);
     --accent: rgb(255, 201, 91);
     --text: rgb(235, 235, 235);
@@ -22,6 +23,7 @@
 
   html[data-theme=light]{
     --primary: rgb(60, 149, 217);
+    --base-100-rgba: 156, 190, 216;
     --base-100: rgb(156, 190, 216);
     --accent: rgb(250, 204, 21);
     --text: var(--neutral-white);
@@ -61,6 +63,10 @@ html[data-theme=light] #wave path {
 
 .carousel.carousel-slider {
   overflow: visible !important;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .slider-wrapper {

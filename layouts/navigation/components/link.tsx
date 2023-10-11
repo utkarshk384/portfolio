@@ -1,7 +1,8 @@
 import { useCallback } from "react";
+import NextLink from "next/link";
 
 /* Store */
-import { useNavigationStore } from "@/src/stores";
+import { useNavigationDrawer, useNavigationStore } from "@/src/stores";
 
 /* Types */
 import type { Routes } from "@/src/stores/navigation";
@@ -15,11 +16,13 @@ type LinkProps = {
 
 export const Link: React.FC<LinkProps> = (props) => {
   const { className = "" } = props;
-  const { route, setRoute, setDrawerOpen } = useNavigationStore();
+  const { route, setRoute } = useNavigationStore();
+  const { setDrawerOpen } = useNavigationDrawer();
 
   const handler = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
       e.preventDefault();
+      scrollIntoview(props.route.replace("/", ""));
       setDrawerOpen(false);
       setRoute(props.route.replace("/", "") as Routes);
     },
@@ -39,4 +42,10 @@ export const Link: React.FC<LinkProps> = (props) => {
       {props.text}
     </a>
   );
+};
+
+const scrollIntoview = (id: string) => {
+  console.log({ id });
+  const element = document.getElementById(id);
+  element?.scrollIntoView({ behavior: "smooth" });
 };

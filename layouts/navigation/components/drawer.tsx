@@ -2,7 +2,7 @@ import gsap from "gsap";
 import React, { useCallback, useEffect, useRef } from "react";
 
 /* Stores */
-import { useNavigationStore, useThemeStore } from "@/src/stores";
+import { useNavigationDrawer } from "@/src/stores";
 
 /* Components */
 import { Link } from "./link";
@@ -22,7 +22,7 @@ export const MobileDrawer: React.FC<Props> = (props) => {
   const {} = props;
 
   /* Stores */
-  const { isDrawerOpen, setDrawerOpen } = useNavigationStore();
+  const { isDrawerOpen, setDrawerOpen } = useNavigationDrawer();
 
   /* Refs */
   const drawerRef = useRef<HTMLDivElement | null>(null);
@@ -51,7 +51,7 @@ export const MobileDrawer: React.FC<Props> = (props) => {
     <div ref={drawerRef}>
       <Drawer
         isDrawerOpen={isDrawerOpen}
-        contentClasses="overflow-hidden"
+        contentClasses="overflow-hidden mt-14"
         setDrawerOpen={setDrawerOpen}
         onMount={onMountAnimation}
       >

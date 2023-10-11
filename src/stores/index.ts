@@ -1,2 +1,2 @@
 export { useThemeStore } from "./theme";
-export { useNavigationStore } from "./navigation";
+export { useNavigationStore, useNavigationDrawer } from "./navigation";

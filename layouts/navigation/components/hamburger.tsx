@@ -2,7 +2,7 @@ import gsap from "gsap";
 import { useEffect, useRef } from "react";
 
 /* Stores */
-import { useNavigationStore } from "@/src/stores";
+import { useNavigationDrawer } from "@/src/stores";
 
 /* Animations */
 import { HamburgerAnim } from "../animations";
@@ -10,7 +10,7 @@ import useWindowSize from "@/src/hooks/useWindowSize";
 
 export const Hamburger: React.FC = () => {
   /* Store */
-  const { isDrawerOpen, setDrawerOpen } = useNavigationStore();
+  const { isDrawerOpen, setDrawerOpen } = useNavigationDrawer();
 
   /* Hooks */
   const { sizes, bp } = useWindowSize();

@@ -17,7 +17,7 @@ type Props = {
   wrapperClassName?: string;
 };
 
-export const Section: React.FC<Props> = (props) => {
+export const Section = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
   const {
     titleText,
     titleId,
@@ -27,7 +27,7 @@ export const Section: React.FC<Props> = (props) => {
     wrapperClassName = "",
   } = props;
   return (
-    <SectionContainer className={wrapperClassName}>
+    <SectionContainer ref={ref} className={wrapperClassName}>
       <SectionTitleContainer isLast={isLast}>
         <div
           className={`absolute -left-5 ${
@@ -58,4 +58,6 @@ export const Section: React.FC<Props> = (props) => {
       <div className={`pt-16 pl-12 ${className}`}>{props.children}</div>
     </SectionContainer>
   );
-};
+});
+
+Section.displayName = "Section";
