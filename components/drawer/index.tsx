@@ -46,6 +46,10 @@ export const Drawer: React.FC<Props> = (props) => {
 
   const contentRef = useRef<HTMLDivElement | null>(null);
 
+  useEffect(() => {
+    toggleScroll(isDrawerOpen);
+  }, [isDrawerOpen]);
+
   return (
     <Dialog.Root open={isDrawerOpen} onOpenChange={setDrawerOpen}>
       {TriggerComponent && (
@@ -83,3 +87,16 @@ const DrawerContent = styled(Dialog.Content, {
   zIndex: 10,
   boxShadow: "0 0 0 1px $base-100",
 });
+
+const toggleScroll = (isDrawerOpen: boolean) => {
+  if (!document) return;
+  const container = document.querySelector("#main-container");
+  const body = document.querySelector("body");
+  if (isDrawerOpen) {
+    container?.classList.add("overflow-hidden");
+    body?.classList.add("overflow-hidden");
+  } else {
+    body?.classList.remove("overflow-hidden");
+    container?.classList.remove("overflow-hidden");
+  }
+};

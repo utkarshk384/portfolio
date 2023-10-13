@@ -1,14 +1,15 @@
 import React from "react";
-import { Player } from "@lottiefiles/react-lottie-player";
+
+/* Components */
+import { Player } from "@/src/Player";
 
 /* Hooks */
-import { useWindowSize, useLottie } from "@/src/hooks";
+import { useLottie } from "@/src/hooks";
 
 /* Wave */
 import wave from "@/animations/wave.json";
 
 export const HeroWave: React.FC = () => {
-  const { bp, sizes } = useWindowSize();
   const { playerRef, setLottie } = useLottie();
 
   return (

@@ -2,7 +2,9 @@
 
 import React from "react";
 import { styled } from "@stitches/react";
-import { Player as LottiePlayer } from "@lottiefiles/react-lottie-player";
+
+/* Components */
+import { Player } from "@/src/Player";
 
 /* Animation */
 import * as underConstruction from "@/animations/under_construction.json";
@@ -11,8 +13,6 @@ import { Heading, Text } from "@/components";
 type Props = {
   children?: React.ReactNode;
 };
-
-const Player = LottiePlayer as any;
 
 export const UnderConstruction: React.FC<Props> = (props) => {
   const {} = props;

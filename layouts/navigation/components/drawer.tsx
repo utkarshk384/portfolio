@@ -6,10 +6,10 @@ import { useNavigationDrawer } from "@/src/stores";
 
 /* Components */
 import { Link } from "./link";
+import { Player } from "@/src/Player";
 
 /* Layouts */
 import { Drawer } from "@/components/drawer";
-import { Player } from "@lottiefiles/react-lottie-player";
 
 /* Lottie Animations */
 import * as wave from "@/animations/wave.json";
@@ -51,7 +51,7 @@ export const MobileDrawer: React.FC<Props> = (props) => {
     <div ref={drawerRef}>
       <Drawer
         isDrawerOpen={isDrawerOpen}
-        contentClasses="overflow-hidden mt-14"
+        contentClasses="overflow-hidden pt-14"
         setDrawerOpen={setDrawerOpen}
         onMount={onMountAnimation}
       >

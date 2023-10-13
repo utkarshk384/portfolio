@@ -2,7 +2,7 @@ import { LayoutWrapper } from "./wrapper";
 
 export default function Home() {
   return (
-    <main>
+    <main id="main-container">
       <LayoutWrapper />
     </main>
   );
