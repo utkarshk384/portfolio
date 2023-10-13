@@ -6,7 +6,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 gsap.registerPlugin(CustomEase);
 
 /* Stitches */
-import { styled } from "@/stitches.config";
+import { styled } from "@/styles/stitches";
 import { Transition } from "react-transition-group";
 
 type Props = {
