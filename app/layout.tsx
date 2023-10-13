@@ -7,6 +7,7 @@ import { Raleway, Cookie } from "@next/font/google";
 /* Hooks */
 import { Navigation } from "@/layouts/navigation";
 import { SideEffects } from "./sideeffect";
+import Providers from "./providers";
 
 /* Fonts */
 const cookie = Cookie({
@@ -48,7 +49,7 @@ export default function RootLayout(props: Props) {
       <SideEffects />
       <body className="bg-base-100 !pointer-events-auto transition-all duration-200 ease-linear">
         <Navigation />
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

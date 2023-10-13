@@ -10,7 +10,6 @@ const refreshToken = process.env.NEXT_PUBLIC_SPOTIFY_REFRESH_TOKEN;
 
 export const getAccessToken = async () => {
   const basic = Buffer.from(`${clientId}:${clientSecret}`).toString("base64");
-  console.log({ clientId, clientSecret, refreshToken });
 
   const response = await AxiosWrapper<SpotifyTokenResponse, string>({
     baseURL: "https://accounts.spotify.com",
@@ -25,8 +24,6 @@ export const getAccessToken = async () => {
       refresh_token: refreshToken,
     }),
   });
-
-  console.log({ response });
 
   return response;
 };

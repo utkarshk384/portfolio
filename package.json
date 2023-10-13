@@ -19,6 +19,11 @@
     "@next/font": "^13.4.18",
     "@radix-ui/react-dialog": "^1.0.3",
     "@stitches/react": "^1.2.8",
+    "@tanstack/react-query": "^4.35.3",
+    "@tanstack/react-query-next-experimental": "^5.0.0-alpha.80",
+    "@types/node": "18.15.13",
+    "@types/react": "18.0.38",
+    "@types/react-dom": "18.0.11",
     "autoprefixer": "10.4.14",
     "axios": "^1.5.0",
     "eslint": "8.39.0",
@@ -37,6 +42,8 @@
     "zustand": "^4.3.7"
   },
   "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^4.34.1",
+    "@tanstack/react-query-devtools": "^4.35.3",
     "@types/lodash.debounce": "^4.0.7",
     "@types/react-transition-group": "^4.4.5",
     "@types/uuid": "^9.0.2",

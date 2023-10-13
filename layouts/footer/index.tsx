@@ -10,11 +10,19 @@ import { Heading, Text } from "@/components";
 /* APIs */
 import { getAccessToken, getCurrentlyPlaying } from "@/src/api";
 import { textUtils } from "@/src/utils";
+import { useGetAccessToken, useGetNowPlaying } from "@/src/api/hooks";
 
 type Props = {
   children?: React.ReactNode;
 };
 
+type SpotifyData = {
+  name: string;
+  artwork: string;
+  artist: string;
+  isPlaying: boolean;
+  songUrl: string;
+};
 const getNowPlaying = async () => {
   const { access_token } = await getAccessToken();
 
@@ -40,8 +48,12 @@ export const Footer: React.FC<Props> = (props) => {
 };
 
 export const SpotifyPlayer = () => {
-  const [isLoading, setLoading] = useState(true);
-  const [data, setData] = useState({
+  /* APIs */
+  const token = useGetAccessToken();
+  const nowPlaying = useGetNowPlaying(token.accessToken as string);
+
+  /* State */
+  const [data, setData] = useState<SpotifyData>({
     name: "",
     artwork: "",
     artist: "",
@@ -50,19 +62,18 @@ export const SpotifyPlayer = () => {
   });
 
   useEffect(() => {
-    getNowPlaying().then((res) => {
-      const data = {
-        name: res?.item?.name,
-        artwork: res?.item?.album?.images?.[0]?.url,
-        artist: res?.item?.artists?.[0]?.name,
-        isPlaying: res?.is_playing,
-        songUrl: res?.item?.external_urls?.spotify,
-      };
+    if (!nowPlaying.isSuccess) return;
+    const res = nowPlaying.data;
+    const data = {
+      name: res?.item?.name,
+      artwork: res?.item?.album?.images?.[0]?.url,
+      artist: res?.item?.artists?.[0]?.name,
+      isPlaying: res?.is_playing,
+      songUrl: res?.item?.external_urls?.spotify,
+    };
 
-      setData(data);
-      setLoading(false);
-    });
-  }, []);
+    setData(data);
+  }, [nowPlaying.data, nowPlaying.isSuccess]);
 
   /* Handlers */
   const onClickHandler = () => {
@@ -94,9 +105,9 @@ export const SpotifyPlayer = () => {
         />
       </button>
       <div className="flex flex-col justify-center w-full gap-2 py-4 pr-6">
-        <Heading as="h6" size="20">
+        <Heading title={data.name} as="h6" size="20">
           {data.isPlaying
-            ? `${textUtils.truncate(data.name, 14)} 🎧`
+            ? `${textUtils.truncate(data.name, 11)} 🎧`
             : "Utkarsh is not"}
         </Heading>
         <Text size="18">
