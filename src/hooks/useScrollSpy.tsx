@@ -46,7 +46,6 @@ export const useScrollSpy = (params: Params) => {
   useEffect(() => {
     const scrollable = scrollingElement?.current ?? window;
     scrollable.addEventListener("scroll", handle);
-    console.log("hello");
     // Run initially
     handle();
 

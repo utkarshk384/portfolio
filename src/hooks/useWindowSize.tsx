@@ -16,23 +16,22 @@ type SizesType = {
   "2xl": any;
 };
 
+export const BREAKPOINTS = {
+  xs: 420,
+  sm: 640,
+  md: 768,
+  lg: 1024,
+  xl: 1280,
+  "2xl": 1536,
+};
+
 export default function useWindowSize() {
   const [windowSize, setWindowSize] = useState<Iconfig>({
     width: 0,
     height: 0,
   });
 
-  const breakpoints = useMemo(
-    () => ({
-      xs: 420,
-      sm: 640,
-      md: 768,
-      lg: 1024,
-      xl: 1280,
-      "2xl": 1536,
-    }),
-    []
-  );
+  const breakpoints = useMemo(() => BREAKPOINTS, []);
 
   useEffect(() => {
     // Handler to call on window resize
