@@ -45,7 +45,6 @@ export const Link: React.FC<LinkProps> = (props) => {
 };
 
 const scrollIntoview = (id: string) => {
-  console.log({ id });
   const element = document.getElementById(id);
   element?.scrollIntoView({ behavior: "smooth" });
 };

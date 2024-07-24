@@ -39,20 +39,6 @@ const Logo: React.FC = () => {
         ref={LowerTextRef}
       ></span>
     </p>
-    // <div
-    // 	className={`flex flex-col flex-nowrap items-center ${
-    // 		visible
-    // 			? ""
-    // 			: "px-4 pb-7 -ml-2 rounded-2xl justify-between bg-secondary bg-opacity-80 backdrop-blur-xl"
-    // 	}`}
-    // >
-    // 	<div className={`${styles["logo"]} `}>
-    // 		<p className="text-primary" ref={UpperTextRef}></p>
-    // 	</div>
-    // 	<div className={`${styles["logo"]}`}>
-    // 		<p className="text-accent" ref={LowerTextRef}></p>
-    // 	</div>
-    // </div>
   );
 };
 
