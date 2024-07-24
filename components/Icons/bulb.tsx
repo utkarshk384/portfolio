@@ -12,11 +12,12 @@ export const AnimatedBulb = React.forwardRef<SVGSVGElement, Props>(
       <svg
         id="bulb--svg--icon"
         xmlns="http://www.w3.org/2000/svg"
-        width={35}
-        height={161}
+        width={28}
+        height={128}
         fill="none"
+        viewBox="0 0 40 140"
         ref={ref}
-        className={`${className} relative -top-10`}
+        className={`${className} relative -top-8`}
         {...rest}
       >
         <path
