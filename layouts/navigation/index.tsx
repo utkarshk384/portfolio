@@ -78,11 +78,11 @@ export const Navigation: React.FC<Props> = (props) => {
           <Logo />
         </div>
         <nav className="items-center hidden w-7/12 select-none lg:flex justify-evenly text-heading-4">
-          <Link route="/#home" text="Home" />
-          <Link route="/#about" text="About" />
-          <Link route="/#experience" text="Experience" />
-          <Link route="/#projects" text="Projects" />
-          <Link route="/#tools" text="Tools" />
+          <Link route="/home" text="Home" />
+          <Link route="/about" text="About" />
+          <Link route="/experience" text="Experience" />
+          <Link route="/projects" text="Projects" />
+          <Link route="/tools" text="Tools" />
         </nav>
         <Hamburger />
       </NavigationContainer>

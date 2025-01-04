@@ -46,10 +46,11 @@
     "@tanstack/eslint-plugin-query": "^4.34.1",
     "@tanstack/react-query-devtools": "^4.35.3",
     "@types/lodash.debounce": "^4.0.7",
-    "@types/react-transition-group": "^4.4.5",
-    "@types/uuid": "^9.0.2",
     "@types/node": "18.15.13",
     "@types/react": "18.0.38",
-    "@types/react-dom": "18.0.11"
+    "@types/react-dom": "18.0.11",
+    "@types/react-scroll": "^1.8.10",
+    "@types/react-transition-group": "^4.4.5",
+    "@types/uuid": "^9.0.2"
   }
 }
