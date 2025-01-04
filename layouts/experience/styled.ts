@@ -22,3 +22,10 @@ export const ExperienceMarkerContainer = styled("div", {
     flexDirection: "row",
   },
 });
+
+export const ExperienceItemContainer = styled("div", {
+  display: "flex",
+  flexDirection: "column",
+  gap: "0.5rem",
+  width: "calc(100% / var(--items))",
+});

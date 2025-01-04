@@ -38,6 +38,8 @@
   }
   .body-line::before {
     @apply w-2.5;
+    isolation: isolate;
+    z-index: 10;
     content: "";
     position: absolute;
     top: 0;

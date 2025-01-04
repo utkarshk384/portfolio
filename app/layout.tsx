@@ -22,6 +22,7 @@ const raleway = Raleway({
   display: "swap",
   variable: "--raleway-font",
   weight: ["400", "500", "600", "700"],
+  fallback: ["sans-serif"],
 });
 
 export const metadata = {

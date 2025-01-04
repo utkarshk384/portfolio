@@ -1,11 +1,18 @@
 "use client";
 
-import React from "react";
+import gsap from "gsap";
+import React, { useEffect, useMemo } from "react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 /* Styled */
 import { Heading, Text } from "@/components";
 import { SectionContainer, SectionTitleContainer } from "./styled";
-import { useWindowSize } from "@/src/hooks";
+
+/* Hook */
+import { usePlugin, useTweens } from "@/src/hooks/gsap";
+
+/* Utils */
+import mergeRefs from "@/src/utils/mergeRefs";
 
 type Props = {
   children?: React.ReactNode;
@@ -17,6 +24,22 @@ type Props = {
   wrapperClassName?: string;
 };
 
+const Animation = (
+  ctx: gsap.Context,
+  id: string,
+  ref: React.MutableRefObject<HTMLDivElement>
+) => {
+  gsap.to(`#${id}`, {
+    opacity: 0,
+    scrollTrigger: {
+      trigger: ref.current,
+      scrub: 0,
+      start: "top 75%",
+      end: "75% top",
+    },
+  });
+};
+
 export const Section = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
   const {
     titleText,
@@ -26,9 +49,20 @@ export const Section = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
     isLast = false,
     wrapperClassName = "",
   } = props;
+
+  /* Memos */
+  const innerDivId = useMemo(() => `${titleId}-inner-container`, [titleId]);
+
+  usePlugin(ScrollTrigger);
+  const scopeRef = useTweens((ctx, ref) => Animation(ctx, innerDivId, ref));
+
   return (
-    <SectionContainer ref={ref} className={wrapperClassName}>
-      <SectionTitleContainer isLast={isLast}>
+    <SectionContainer
+      id={`${titleId}-container`}
+      ref={mergeRefs(scopeRef, ref)}
+      className={wrapperClassName}
+    >
+      <SectionTitleContainer id={innerDivId} isLast={isLast}>
         <div
           className={`absolute -left-5 ${
             isLast

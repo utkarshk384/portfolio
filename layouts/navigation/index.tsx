@@ -73,7 +73,7 @@ export const Navigation: React.FC<Props> = (props) => {
     <>
       <MobileDrawer />
       <NavigationContainer className="container">
-        <div className="flex items-stretch gap-4">
+        <div className="flex items-stretch gap-4 h-28">
           <AnimatedBulb ref={bulbRef} onClick={(e) => toggleTheme()} />
           <Logo />
         </div>

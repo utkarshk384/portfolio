@@ -61,7 +61,7 @@ export const LayoutWrapper: React.FC<Props> = (props) => {
     <>
       <HeroSection ref={heroRef} />
       <div className="relative bg-gradient-bg">
-        <div className="container">
+        <div className="container !mx-[10%]">
           <AboutMe ref={aboutRef} />
           <div className="relative">
             <Experience ref={experienceRef} />
