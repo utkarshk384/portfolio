@@ -12,7 +12,7 @@ export const SectionTitleContainer = styled("div", {
     content: "",
     position: "absolute",
     left: 0,
-    transform: "translate(-30%, 100%)",
+    transform: "translate(-35%, 100%)",
     width: "2rem",
     height: "2rem",
     backgroundColor: "$accent",

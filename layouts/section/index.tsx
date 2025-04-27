@@ -34,7 +34,8 @@ const Animation = (
     scrollTrigger: {
       trigger: ref.current,
       scrub: 0,
-      start: "top 75%",
+      markers: true,
+      start: "top 25%",
       end: "75% top",
     },
   });
@@ -62,7 +63,7 @@ export const Section = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
       ref={mergeRefs(scopeRef, ref)}
       className={wrapperClassName}
     >
-      <SectionTitleContainer id={innerDivId} isLast={isLast}>
+      <SectionTitleContainer isLast={isLast}>
         <div
           className={`absolute -left-5 ${
             isLast
@@ -78,16 +79,18 @@ export const Section = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
             {depth}
           </Text>
         </div>
-        <Heading
-          className="pl-12 mt-4 lg:mt-0"
-          id={titleId}
-          as="h2"
-          size="64"
-          color="accent"
-          weight="700"
-        >
-          {titleText}
-        </Heading>
+        <div id={innerDivId}>
+          <Heading
+            className="pl-12 mt-4 lg:mt-0"
+            id={titleId}
+            as="h2"
+            size="64"
+            color="accent"
+            weight="700"
+          >
+            {titleText}
+          </Heading>
+        </div>
       </SectionTitleContainer>
       <div className={`pt-16 pl-12 ${className}`}>{props.children}</div>
     </SectionContainer>

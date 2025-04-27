@@ -6,6 +6,7 @@ export const ToolContainer = styled("div", {
   minWidth: "7.75rem",
   minHeight: "8rem",
   gap: "1rem",
+  marginInline: "0.5rem",
   justifyContent: "center",
   alignItems: "center",
   padding: "1rem",

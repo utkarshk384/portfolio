@@ -48,7 +48,7 @@ const Animation: GsapContextFn<HTMLDivElement> = (ctx, ref) => {
     scrollTrigger: {
       trigger: ref.current,
       pin: true,
-      markers: true,
+      markers: false,
       pinSpacing: false,
       scrub: 1,
       snap: 1 / experiences.length - 1,

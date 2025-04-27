@@ -84,7 +84,7 @@ const DrawerContent = styled(Dialog.Content, {
   overflow: "hidden",
   width: "100%",
   backgroundColor: "$base-100",
-  zIndex: 10,
+  zIndex: 20,
   boxShadow: "0 0 0 1px $base-100",
 });
 

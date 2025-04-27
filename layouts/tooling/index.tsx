@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import React, { useMemo } from "react";
+import Marquee from "react-fast-marquee";
 
 /* Components */
 import { Section } from "../section";
@@ -25,7 +26,7 @@ type ToolProps = {
 export const Tooling = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
   const {} = props;
 
-  const tools = useMemo(() => TOOLS, []);
+  const tools = useMemo(() => Object.values(TOOLS).flat(), []);
 
   return (
     <Section
@@ -36,45 +37,15 @@ export const Tooling = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
       titleText="Tooling"
     >
       <div className="flex flex-col gap-12">
-        <div>
+        <div className="w-full">
           <Heading size="32" weight="600">
             Langauges and Runtimes
           </Heading>
-          <div className="flex flex-wrap gap-4 mt-4">
-            {tools.languages.map((tool, i) => (
+          <Marquee speed={150} pauseOnClick loop={0} className="w-full">
+            {tools.map((tool, i) => (
               <Tool key={tool.name + i} {...tool} />
             ))}
-          </div>
-        </div>
-        <div>
-          <Heading size="32" weight="600">
-            Frameworks and Libraries
-          </Heading>
-          <div className="flex flex-wrap gap-4 mt-4">
-            {tools.frameworks.map((tool, i) => (
-              <Tool key={tool.name + i} {...tool} />
-            ))}
-          </div>
-        </div>
-        <div>
-          <Heading size="32" weight="600">
-            Design
-          </Heading>
-          <div className="flex flex-wrap gap-4 mt-4">
-            {tools.design.map((tool, i) => (
-              <Tool key={tool.name + i} {...tool} />
-            ))}
-          </div>
-        </div>
-        <div>
-          <Heading size="32" weight="600">
-            Other Tools
-          </Heading>
-          <div className="flex flex-wrap gap-4 mt-4">
-            {tools.otherTools.map((tool, i) => (
-              <Tool key={tool.name + i} {...tool} />
-            ))}
-          </div>
+          </Marquee>
         </div>
       </div>
     </Section>
