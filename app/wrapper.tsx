@@ -1,4 +1,7 @@
 "use client";
+import { Tooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
+
 import React, { useEffect, useRef } from "react";
 
 /* Layouts */
@@ -59,6 +62,7 @@ export const LayoutWrapper: React.FC<Props> = (props) => {
 
   return (
     <>
+      <Tooltip id="my-tooltip" />
       <HeroSection ref={heroRef} />
       <div className="relative bg-gradient-bg">
         <div className="container !mx-[10%]">

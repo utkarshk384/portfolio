@@ -12,6 +12,7 @@ type BaseProps = {
   as?: "span" | "div" | "p" | "a";
   LeftIcon?: React.FC;
   href?: string;
+  target?: HTMLAnchorElement["target"];
   roundness?: RoundnessType;
 } & Omit<React.HTMLAttributes<HTMLElement>, "color">;
 

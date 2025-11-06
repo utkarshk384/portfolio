@@ -13,6 +13,7 @@ type BaseProps = {
   textCase?: TextCases;
   className?: string;
   href?: string;
+  target?: HTMLAnchorElement["target"];
 } & React.HTMLAttributes<HTMLHeadingElement | HTMLParagraphElement>;
 
 type TextProps = {
@@ -35,6 +36,8 @@ export const Text: React.FC<TextProps> = (props) => {
 
   return (
     <StyledTypography
+      href={props.href}
+      target={props.target || undefined}
       color={color}
       size={size}
       weight={weight}

@@ -21,6 +21,7 @@ import mergeRefs from "@/src/utils/mergeRefs";
 /* Types */
 import type { TechIconType } from "@components/Icons";
 import type { GsapContextFn } from "@/src/hooks/gsap";
+import { data } from "@/src/data";
 
 type Props = {
   children?: React.ReactNode;
@@ -31,6 +32,7 @@ type ExperienceItemProps = {
   position: string;
   duration: string;
   logoUrl: string;
+  companyName: string;
   itemCount: number;
   description: string[];
 };
@@ -64,6 +66,9 @@ export const Experience = React.forwardRef<HTMLDivElement, Props>(
     usePlugin(ScrollTrigger);
 
     const scopeRef = useTweens(Animation);
+
+    /* Memos */
+    const experienceData = useMemo(() => data.experience, []);
     return (
       <>
         <Section
@@ -75,44 +80,18 @@ export const Experience = React.forwardRef<HTMLDivElement, Props>(
           titleId="experience"
         >
           <div id="experience-container" className="relative flex gap-4">
-            <ExperienceItem
-              itemCount={2}
-              logoUrl="/my-picture.webp"
-              description={[
-                "Created a notification system from scratch that is being used by the sales team.",
-                "Add trash functionality in the labs of the product. This makes it possible to delete an item and store it in the trash bin.",
-                "Added referral system which shows the user how many users has he/her referred.",
-              ]}
-              duration="Jan 2021 - Present"
-              position="Backend Developer Intern"
-              technologies={[
-                "Express",
-                "Go",
-                "AWS",
-                "Django",
-                "Javascript",
-                "Mysql",
-              ]}
-            />
-            <ExperienceItem
-              itemCount={2}
-              logoUrl="/my-picture.webp"
-              description={[
-                "Created a notification system from scratch that is being used by the sales team.",
-                "Add trash functionality in the labs of the product. This makes it possible to delete an item and store it in the trash bin.",
-                "Added referral system which shows the user how many users has he/her referred.",
-              ]}
-              duration="Jan 2021 - Present"
-              position="Backend Developer Intern"
-              technologies={[
-                "Express",
-                "Go",
-                "AWS",
-                "Django",
-                "Javascript",
-                "Mysql",
-              ]}
-            />
+            {experienceData.map((item, i) => (
+              <ExperienceItem
+                key={item.companyName + i}
+                itemCount={experienceData.length}
+                logoUrl={item.logoUrl}
+                description={item.description}
+                duration={item.duration}
+                position={item.position}
+                companyName={item.companyName}
+                technologies={item.technologies}
+              />
+            ))}
           </div>
         </Section>
         <div
@@ -153,19 +132,16 @@ export const ExperienceItem: React.FC<ExperienceItemProps> = (props) => {
       </div>
       <div className="flex flex-col justify-center">
         <Heading weight="700" size="32">
-          {props.position}
+          {props.position} - {props.companyName}
         </Heading>
-        <Heading weight="700" size="24">
-          Qwikskills
-        </Heading>
-        <Text size="28">{props.duration}</Text>
+        <Text size="20">{props.duration}</Text>
       </div>
       <div className="flex flex-wrap gap-4">
         {techStack.map((Tech, i) => (
           <Tech key={uniqueId + i} height={32} width={32} />
         ))}
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-1 mt-4">
         {description.map((item, i) => (
           <Text as="li" key={descId + i} size="18">
             {item}

@@ -1,15 +1,12 @@
 import gsap from "gsap";
 import CustomEase from "gsap/CustomEase";
+import React, { useEffect, useMemo, useRef } from "react";
 
-import { Heading, Text } from "@/components";
+import { Heading } from "@/components";
 import { useUniqueId } from "@/src/hooks";
-import React, {
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+
+/* Data */
+import { data } from "@src/data";
 
 const TextEase = CustomEase.create(
   "custom",
@@ -29,15 +26,7 @@ export const HeroText: React.FC<Props> = (props) => {
   const animationRef = useRef<HTMLDivElement | null>(null);
 
   /* Memos */
-  const texts = useMemo(
-    () => [
-      "Full-stack Developer",
-      "UX Designer",
-      "Musicophile",
-      "Cloud Enthusiast",
-    ],
-    []
-  );
+  const texts = useMemo(() => data.hero, []);
   const uniqueTextId = useUniqueId("text-");
   const tl = useRef<gsap.core.Timeline | null>(null);
 
