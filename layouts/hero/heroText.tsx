@@ -1,3 +1,5 @@
+"use client";
+
 import gsap from "gsap";
 import CustomEase from "gsap/CustomEase";
 import React, { useEffect, useMemo, useRef } from "react";
