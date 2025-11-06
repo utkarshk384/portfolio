@@ -1,5 +1,5 @@
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
 
 export type Props = {
   height?: number;
@@ -106,18 +106,99 @@ const TypescriptIcon: React.FC<Props> = (props) => {
   );
 };
 
-TechIcon.Express = ExpressIcon;
-TechIcon.AWS = AWSIcon;
-TechIcon.CPP = CPPIcon;
-TechIcon.Django = DjangoIcon;
-TechIcon.Go = GoIcon;
-TechIcon.Javascript = JavascriptIcon;
-TechIcon.Mysql = MysqlIcon;
-TechIcon.NextJS = NextJSIcon;
-TechIcon.NodeJS = NodeJSIcon;
-TechIcon.Python = PythonIcon;
-TechIcon.React = ReactIcon;
-TechIcon.SCSS = SCSSIcon;
-TechIcon.Strapi = StrapiIcon;
-TechIcon.Tailwind = TailwindIcon;
-TechIcon.Typescript = TypescriptIcon;
+const DockerIcon: React.FC<Props> = (props) => {
+  const rest = DefaultProps(props, 32, 32);
+  return <Image src="/technologies/docker.png" alt="Docker Icon" {...rest} />;
+};
+
+const JenkinsIcon: React.FC<Props> = (props) => {
+  const rest = DefaultProps(props, 32, 32);
+  return <Image src="/technologies/jenkins.png" alt="Jenkins Icon" {...rest} />;
+};
+
+const KubernetesIcon: React.FC<Props> = (props) => {
+  const rest = DefaultProps(props, 32, 32);
+  return (
+    <Image src="/technologies/kubernetes.png" alt="Kubernetes Icon" {...rest} />
+  );
+};
+
+const TerraformIcon: React.FC<Props> = (props) => {
+  const rest = DefaultProps(props, 32, 32);
+  return (
+    <Image src="/technologies/terraform.webp" alt="Terraform Icon" {...rest} />
+  );
+};
+
+const NginxIcon: React.FC<Props> = (props) => {
+  const rest = DefaultProps(props, 32, 32);
+  return <Image src="/technologies/nginx.png" alt="Nginx Icon" {...rest} />;
+};
+
+const AzureIcon: React.FC<Props> = (props) => {
+  const rest = DefaultProps(props, 32, 32);
+  return <Image src="/technologies/azure.png" alt="Azure Icon" {...rest} />;
+};
+
+const ArgoCDIcon: React.FC<Props> = (props) => {
+  const rest = DefaultProps(props, 32, 32);
+  return <Image src="/technologies/argocd.png" alt="ArgoCD Icon" {...rest} />;
+};
+
+const BashIcon: React.FC<Props> = (props) => {
+  const rest = DefaultProps(props, 32, 32);
+  return <Image src="/technologies/bash.png" alt="Bash Icon" {...rest} />;
+};
+
+const HelmIcon: React.FC<Props> = (props) => {
+  const rest = DefaultProps(props, 32, 32);
+  return <Image src="/technologies/helm.png" alt="Helm Icon" {...rest} />;
+};
+
+const PrometheusIcon: React.FC<Props> = (props) => {
+  const rest = DefaultProps(props, 32, 32);
+  return (
+    <Image src="/technologies/prometheus.png" alt="Prometheus Icon" {...rest} />
+  );
+};
+
+export const withTooltip = (
+  Component: React.FC<Props>,
+  tooltipText: string
+) => {
+  const ComponentWithTooltip: React.FC<Props> = (props) => {
+    return (
+      <div data-tooltip-id="my-tooltip" data-tooltip-content={tooltipText}>
+        <Component {...props} />
+      </div>
+    );
+  };
+
+  return ComponentWithTooltip;
+};
+
+TechIcon.Express = withTooltip(ExpressIcon, "Express JS");
+TechIcon.AWS = withTooltip(AWSIcon, "AWS");
+TechIcon.CPP = withTooltip(CPPIcon, "C++");
+TechIcon.Django = withTooltip(DjangoIcon, "Djano");
+TechIcon.Go = withTooltip(GoIcon, "Golang");
+TechIcon.Javascript = withTooltip(JavascriptIcon, "Javascript");
+TechIcon.Mysql = withTooltip(MysqlIcon, "MySQL");
+TechIcon.NextJS = withTooltip(NextJSIcon, "NextJS");
+TechIcon.NodeJS = withTooltip(NodeJSIcon, "NodeJS");
+TechIcon.Python = withTooltip(PythonIcon, "Python");
+TechIcon.React = withTooltip(ReactIcon, "React JS");
+TechIcon.SCSS = withTooltip(SCSSIcon, "SCSS");
+TechIcon.Strapi = withTooltip(StrapiIcon, "Strapi CMS");
+TechIcon.Tailwind = withTooltip(TailwindIcon, "Tailwind CSS");
+TechIcon.Typescript = withTooltip(TypescriptIcon, "Typescript");
+TechIcon.Docker = withTooltip(DockerIcon, "Docker");
+TechIcon.Jenkins = withTooltip(JenkinsIcon, "Jenkins");
+TechIcon.Kubernetes = withTooltip(KubernetesIcon, "Kubernetes");
+TechIcon.Terraform = withTooltip(TerraformIcon, "Terraform");
+TechIcon.Nginx = withTooltip(NginxIcon, "Nginx");
+TechIcon.Azure = withTooltip(AzureIcon, "Azure");
+TechIcon.ArgoCD = withTooltip(ArgoCDIcon, "ArgoCD");
+TechIcon.Bash = withTooltip(BashIcon, "Bash");
+TechIcon.Helm = withTooltip(HelmIcon, "Helm");
+TechIcon.Prometheus = withTooltip(PrometheusIcon, "Prometheus");

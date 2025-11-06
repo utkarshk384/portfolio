@@ -26,6 +26,8 @@
       "@components/*": ["./components/*"],
       "@layouts/*": ["./layouts/*"],
       "@utils/*": ["./src/utils/*"],
+      "@api/*": ["./src/api/*"],
+      "@src/*": ["./src/*"],
       "@stores/*": ["./src/stores/*"],
       "@/styles/stitches": ["./stitches.config.ts"]
     }

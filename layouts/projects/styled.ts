@@ -11,7 +11,13 @@ export const StyledProjectItem = {} as ProjectItemType;
 
 const Container = styled("div", {
   display: "grid",
-  gridTemplateColumns: "2fr 1fr",
+  gridTemplateRows: "1fr 1fr",
+  gap: "2rem",
+
+  "@lg": {
+    gridTemplateRows: "1fr",
+    gridTemplateColumns: "1fr 1fr",
+  },
 });
 
 const Details = styled("div", {
@@ -23,7 +29,6 @@ const Details = styled("div", {
 const TitleWrapper = styled("div", {
   cursor: "pointer",
   display: "flex",
-  borderBottom: "1px solid $yellow",
   paddingBottom: "0.2rem",
   gap: "0.5rem",
 });
@@ -31,9 +36,6 @@ const TitleWrapper = styled("div", {
 const ImageWrapper = styled("div", {
   display: "flex",
   position: "relative",
-  ".carousel-root": {
-    overflow: "visible !important",
-  },
 });
 
 StyledProjectItem.Container = Container;

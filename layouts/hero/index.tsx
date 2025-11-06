@@ -14,20 +14,23 @@ import { HeroWave } from "./heroWave";
 type Props = {
   children?: React.ReactNode;
 };
+export const HeroSection = React.forwardRef<HTMLDivElement, Props>(
+  (props, ref) => {
+    const {} = props;
 
-export const HeroSection: React.FC<Props> = (props) => {
-  const {} = props;
-
-  return (
-    <div className="relative h-[80vh]">
-      <div id="#portfolio" className="container ">
-        <div className="pt-48 main-container text-primary">
-          <LightDarkIcon />
-          <Heading>Hey there 👋, I am Utkarsh Kumar a</Heading>
-          <HeroText />
+    return (
+      <div id="home" ref={ref} className="relative h-[80vh]">
+        <div id="#portfolio" className="container ">
+          <div className="pt-48 main-container text-primary">
+            <LightDarkIcon />
+            <Heading>Hey there 👋, I am Utkarsh Kumar a</Heading>
+            <HeroText />
+          </div>
         </div>
+        <HeroWave />
       </div>
-      <HeroWave />
-    </div>
-  );
-};
+    );
+  }
+);
+
+HeroSection.displayName = "HeroSection";

@@ -56,7 +56,7 @@ const TypographyPlugin = ({ addUtilities }) => {
       fontFamily: "var(--cookie-font), cursive",
       fontStyle: "normal",
       letterSpacing: "1px",
-      ...generateClasses(400, "3em", "25px"),
+      ...generateClasses(400, "clamp(2em, 3em, 3vw)", "25px"),
     },
   });
 };

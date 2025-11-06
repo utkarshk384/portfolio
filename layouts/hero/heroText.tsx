@@ -1,15 +1,12 @@
 import gsap from "gsap";
 import CustomEase from "gsap/CustomEase";
+import React, { useEffect, useMemo, useRef } from "react";
 
-import { Heading, Text } from "@/components";
+import { Heading } from "@/components";
 import { useUniqueId } from "@/src/hooks";
-import React, {
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+
+/* Data */
+import { data } from "@src/data";
 
 const TextEase = CustomEase.create(
   "custom",
@@ -29,15 +26,7 @@ export const HeroText: React.FC<Props> = (props) => {
   const animationRef = useRef<HTMLDivElement | null>(null);
 
   /* Memos */
-  const texts = useMemo(
-    () => [
-      "Full-stack Developer",
-      "UX Designer",
-      "Musicophile",
-      "Cloud Enthusiast",
-    ],
-    []
-  );
+  const texts = useMemo(() => data.hero, []);
   const uniqueTextId = useUniqueId("text-");
   const tl = useRef<gsap.core.Timeline | null>(null);
 
@@ -45,27 +34,21 @@ export const HeroText: React.FC<Props> = (props) => {
 
   useEffect(() => {
     tl.current = gsap.timeline({ paused: true, repeat: -1 });
-    const height = 70,
-      duration = 1;
+    const duration = 1,
+      stagger = 2;
 
     let ctx = gsap.context(() => {
-      texts.map((_, i) => {
-        gsap.set(`h2[data-text-index="${i}"]`, {
-          y: height,
-        });
-      });
-
       tl.current?.to(`h2[data-text-index]`, {
         y: 0,
         duration,
         ease: "power1.inOut",
-        stagger: 1,
+        stagger,
       });
       tl.current?.to(`h2[data-text-index]`, {
-        y: -height,
+        y: "-100%",
         ease: "power1.inOut",
-        stagger: 1,
-        delay: -texts.length * 0.65,
+        stagger,
+        delay: -2 * texts.length + 3, // Formula to get optimal delay
       });
     }, animationRef);
     tl.current.play();
@@ -78,11 +61,11 @@ export const HeroText: React.FC<Props> = (props) => {
 
   return (
     <div className="relative" ref={animationRef}>
-      <div className="relative overflow-hidden h-14">
+      <div className="relative h-12 overflow-hidden lg:h-16">
         {texts.map((text, i) => (
           <Heading
             as="h2"
-            className="absolute"
+            className="absolute translate-y-full"
             data-text-index={i}
             size="44"
             color="accent"

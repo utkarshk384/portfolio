@@ -12,10 +12,24 @@ export const SectionTitleContainer = styled("div", {
     content: "",
     position: "absolute",
     left: 0,
-    transform: "translate(-30%, 100%)",
+    transform: "translate(-35%, 100%)",
     width: "2rem",
     height: "2rem",
     backgroundColor: "$accent",
     borderRadius: "9999px",
+  },
+
+  variants: {
+    isLast: {
+      true: {
+        "&::before": {
+          borderRadius: "6px",
+          height: "0.85rem",
+          width: "4rem",
+          top: "100%",
+          transform: "translate(-40%, 900%)",
+        },
+      },
+    },
   },
 });

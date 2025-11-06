@@ -14,6 +14,9 @@ import { StyledProjectItem } from "./styled";
 import { CarouselButton } from "./components";
 import { Badge, SocialIcon, Text, TechIcon } from "@/components";
 
+/* Data */
+import { data } from "@/src/data";
+
 /* Hooks */
 import { useUniqueId } from "@/src/hooks";
 
@@ -34,27 +37,41 @@ type ProjectItemProps = {
   projectUrl?: string;
 };
 
-export const Projects: React.FC<Props> = (props) => {
-  const {} = props;
+export const Projects = React.forwardRef<HTMLDivElement, Props>(
+  (props, ref) => {
+    const {} = props;
 
-  return (
-    <Section depth="200 Mts" titleId="projects" titleText="Projects">
-      <ProjectItem
-        description={[
-          "An all in one package tracking application.",
-          "Can be used to track packages from DTDC and Ekart.",
-          "Can view past details of the package in a digestible format.",
-        ]}
-        githubUrl="https://github.com"
-        technologies={["React", "Typescript", "Tailwind", "NextJS"]}
-        title="Ease Track"
-        images={["/my-picture.webp", "/my-picture.webp"]}
-        projectUrl="https://github.com"
-        figmaUrl="https://github.com"
-      />
-    </Section>
-  );
-};
+    /* Memos */
+    const projectsData = useMemo(() => data.projects, []);
+
+    return (
+      <Section
+        ref={ref}
+        wrapperClassName="body-line"
+        depth="200 Mts"
+        titleId="projects"
+        titleText="Projects"
+      >
+        <div className="flex flex-col gap-24">
+          {projectsData.map((i) => (
+            <ProjectItem
+              key={i.title + i}
+              description={i.description}
+              githubUrl={i.githubUrl}
+              technologies={i.technologies}
+              title={i.title}
+              images={i.images}
+              projectUrl={i.projectUrl}
+              figmaUrl={i.figmaUrl}
+            />
+          ))}
+        </div>
+      </Section>
+    );
+  }
+);
+
+Projects.displayName = "Projects";
 
 export const ProjectItem: React.FC<ProjectItemProps> = (props) => {
   const technologies = useMemo(
@@ -67,14 +84,15 @@ export const ProjectItem: React.FC<ProjectItemProps> = (props) => {
   return (
     <StyledProjectItem.Container>
       <StyledProjectItem.Details>
-        <div className="flex flex-col gap-4">
-          <div className="flex gap-4">
+        <div className="flex flex-col flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4">
             <StyledProjectItem.TitleWrapper>
               <Text
                 size="32"
                 weight="600"
                 as={props.projectUrl ? "a" : "p"}
                 href={props.projectUrl}
+                target="_blank"
               >
                 {props.title}
               </Text>
@@ -91,6 +109,7 @@ export const ProjectItem: React.FC<ProjectItemProps> = (props) => {
               as="a"
               color="darkBlue"
               href={props.githubUrl}
+              target="_blank"
               size="sm"
             />
             {props.figmaUrl && (
@@ -127,13 +146,15 @@ export const ProjectItem: React.FC<ProjectItemProps> = (props) => {
       </StyledProjectItem.Details>
       <StyledProjectItem.ImageWrapper>
         <Carousel
+          className="z-10"
+          showStatus={false}
           emulateTouch
           showThumbs={false}
-          renderArrowPrev={(clickHandler, hasPrev) => (
-            <CarouselButton hasPrev={hasPrev} clickHandler={clickHandler} />
-          )}
-          renderArrowNext={(clickHandler, hasNext) => (
+          renderArrowPrev={(clickHandler, hasNext) => (
             <CarouselButton hasNext={hasNext} clickHandler={clickHandler} />
+          )}
+          renderArrowNext={(clickHandler, hasPrev) => (
+            <CarouselButton hasPrev={hasPrev} clickHandler={clickHandler} />
           )}
         >
           {props.images.map((image, i) => (

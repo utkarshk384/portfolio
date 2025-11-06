@@ -6,7 +6,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 gsap.registerPlugin(CustomEase);
 
 /* Stitches */
-import { styled } from "@/stitches.config";
+import { styled } from "@/styles/stitches";
 import { Transition } from "react-transition-group";
 
 type Props = {
@@ -46,6 +46,10 @@ export const Drawer: React.FC<Props> = (props) => {
 
   const contentRef = useRef<HTMLDivElement | null>(null);
 
+  useEffect(() => {
+    toggleScroll(isDrawerOpen);
+  }, [isDrawerOpen]);
+
   return (
     <Dialog.Root open={isDrawerOpen} onOpenChange={setDrawerOpen}>
       {TriggerComponent && (
@@ -80,6 +84,19 @@ const DrawerContent = styled(Dialog.Content, {
   overflow: "hidden",
   width: "100%",
   backgroundColor: "$base-100",
-  zIndex: 10,
+  zIndex: 20,
   boxShadow: "0 0 0 1px $base-100",
 });
+
+const toggleScroll = (isDrawerOpen: boolean) => {
+  if (!document) return;
+  const container = document.querySelector("#main-container");
+  const body = document.querySelector("body");
+  if (isDrawerOpen) {
+    container?.classList.add("overflow-hidden");
+    body?.classList.add("overflow-hidden");
+  } else {
+    body?.classList.remove("overflow-hidden");
+    container?.classList.remove("overflow-hidden");
+  }
+};

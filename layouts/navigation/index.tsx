@@ -11,6 +11,8 @@ import { Hamburger, MobileDrawer } from "./components";
 import { useNavigationStore } from "@/src/stores/navigation";
 import { BulbAnim } from "./animations";
 import { useThemeStore } from "@/src/stores";
+import { NavigationContainer } from "./styled";
+import Logo from "./components/logo";
 
 type Props = {
   children?: React.ReactNode;
@@ -69,28 +71,21 @@ export const Navigation: React.FC<Props> = (props) => {
 
   return (
     <>
-      <div className="w-full">
-        <div className="container flex items-center justify-between p-0">
-          <div className="flex items-stretch gap-4">
-            <AnimatedBulb ref={bulbRef} onClick={(e) => toggleTheme()} />
-            <p className="flex flex-col pt-4 text-navigation">
-              <span className="block h-1/2 text-content">{`Utkarsh's`}</span>
-              <span id="dynamic-text" className="block text-accent">
-                Portfolio
-              </span>
-            </p>
-          </div>
-          <nav className="items-center hidden w-7/12 select-none lg:flex justify-evenly text-heading-4">
-            <Link route="/home" text="Home" />
-            <Link route="/about" text="About" />
-            <Link route="/experience" text="Experience" />
-            <Link route="/projects" text="Projects" />
-            <Link route="/tools" text="Tools" />
-          </nav>
-          <Hamburger />
-        </div>
-      </div>
       <MobileDrawer />
+      <NavigationContainer className="container">
+        <div className="flex items-stretch gap-4 h-28">
+          <AnimatedBulb ref={bulbRef} onClick={(e) => toggleTheme()} />
+          <Logo />
+        </div>
+        <nav className="items-center hidden w-7/12 select-none lg:flex justify-evenly text-heading-4">
+          <Link route="/home" text="Home" />
+          <Link route="/about" text="About" />
+          <Link route="/experience" text="Experience" />
+          <Link route="/projects" text="Projects" />
+          <Link route="/tools" text="Tools" />
+        </nav>
+        <Hamburger />
+      </NavigationContainer>
     </>
   );
 };

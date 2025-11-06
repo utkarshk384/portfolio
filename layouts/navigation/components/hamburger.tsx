@@ -2,7 +2,7 @@ import gsap from "gsap";
 import { useEffect, useRef } from "react";
 
 /* Stores */
-import { useNavigationStore } from "@/src/stores";
+import { useNavigationDrawer } from "@/src/stores";
 
 /* Animations */
 import { HamburgerAnim } from "../animations";
@@ -10,7 +10,7 @@ import useWindowSize from "@/src/hooks/useWindowSize";
 
 export const Hamburger: React.FC = () => {
   /* Store */
-  const { isDrawerOpen, setDrawerOpen } = useNavigationStore();
+  const { isDrawerOpen, setDrawerOpen } = useNavigationDrawer();
 
   /* Hooks */
   const { sizes, bp } = useWindowSize();
@@ -45,7 +45,9 @@ export const Hamburger: React.FC = () => {
   };
 
   return (
-    <div className="z-20 lg:hidden">
+    <div
+      className={`z-20 lg:hidden ${isDrawerOpen ? "pointer-events-none" : ""}`}
+    >
       <button ref={rootRef} className="text-primary" onClick={handleClick}>
         <Icon />
       </button>
@@ -58,8 +60,8 @@ const Icon: React.FC = () => (
     id="prefix__Layer_1"
     data-name="Layer 1"
     xmlns="http://www.w3.org/2000/svg"
-    height={64}
-    width={64}
+    height={32}
+    width={32}
     viewBox="0 0 46.27 32.26"
     className="fill-current"
   >
