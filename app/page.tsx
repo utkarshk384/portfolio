@@ -1,3 +1,4 @@
+"use client";
 import { LayoutWrapper } from "./wrapper";
 
 export default function Home() {
