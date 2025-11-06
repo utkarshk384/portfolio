@@ -1,4 +1,5 @@
-import { Player as LottiePlayer } from "@lottiefiles/react-lottie-player";
+"use client";
+import dynamic from "next/dynamic";
 
 /* Types */
 import type {
@@ -6,7 +7,12 @@ import type {
   Player as PlayerType,
 } from "@lottiefiles/react-lottie-player";
 
-export const Player =
-  LottiePlayer as unknown as React.ForwardRefExoticComponent<
-    Omit<IPlayerProps, "ref"> & React.RefAttributes<PlayerType>
-  >;
+export const Player = dynamic(
+  async () => {
+    const ReactLottie = await import("@lottiefiles/react-lottie-player");
+    return ReactLottie.Player;
+  },
+  { ssr: false }
+) as React.ForwardRefExoticComponent<
+  Omit<IPlayerProps, "ref"> & React.RefAttributes<PlayerType>
+>;
