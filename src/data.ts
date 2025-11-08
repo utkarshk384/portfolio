@@ -1,6 +1,14 @@
 import { TechIconType } from "@/components";
 
 export const data: IData = {
+  navigationText: {
+    home: ["Utkarsh's", "Portfolio"],
+    about: ["About", "Me"],
+    experience: ["My", "Experiences"],
+    projects: ["My", "Projects"],
+    tools: ["My", "Tools"],
+  },
+
   hero: [
     "DevOPS Engineer",
     "Full-stack Engineer",
@@ -119,6 +127,13 @@ type ProjectItemProps = {
 };
 
 interface IData {
+  navigationText: {
+    home: [string, string];
+    about: [string, string];
+    experience: [string, string];
+    projects: [string, string];
+    tools: [string, string];
+  };
   hero: string[];
   experience: ExperienceItemProps[];
   projects: ProjectItemProps[];

@@ -6,6 +6,9 @@ import { TextPlugin } from "gsap/dist/TextPlugin";
 /* Stores */
 import { useNavigationStore } from "@/src/stores";
 
+/* Data */
+import { data } from "@/src/data";
+
 /* Types */
 import type { Routes } from "@/src/stores/navigation";
 
@@ -59,23 +62,9 @@ const GSAPAnimation = (
 
   let firstTextValue = "",
     secondTextValue = "";
-  switch (route) {
-    case "home":
-      (firstTextValue = "Utkarsh's"), (secondTextValue = "Portfolio");
-      break;
-    case "about":
-      (firstTextValue = "About"), (secondTextValue = "Me");
-      break;
-    case "experience":
-      (firstTextValue = "My"), (secondTextValue = "Experiences");
-      break;
-    case "projects":
-      (firstTextValue = "My"), (secondTextValue = "Projects");
-      break;
-    case "tools":
-      (firstTextValue = "My"), (secondTextValue = "Tools");
-      break;
-  }
+  const text = data.navigationText[route];
+  firstTextValue = text[0];
+  secondTextValue = text[1];
 
   tl.to(firstTextRef, { ...tweenConfig, text: { value: firstTextValue } }).to(
     secondTextRef,
