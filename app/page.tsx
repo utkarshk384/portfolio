@@ -21,6 +21,9 @@ import { useNavigationStore } from "@/src/stores";
 /* Hooks */
 import { useScrollSpy } from "@/src/hooks/useScrollSpy";
 
+/* Data */
+import { data } from "@/src/data";
+
 const MapNumbertoRoute = (num: number) => {
   if (num === 0) return "home";
   else if (num === 1) return "about";
@@ -50,9 +53,10 @@ export default function Home() {
   });
 
   useEffect(() => {
-    console.log("Action", actionSection);
     const route = MapNumbertoRoute(actionSection);
     setRoute(route);
+    const text = data.navigationText[route];
+    document.title = text.join(" ");
   }, [actionSection, setRoute]);
 
   return (
