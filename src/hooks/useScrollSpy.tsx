@@ -3,7 +3,7 @@
 */
 
 import throttle from "lodash/fp/throttle";
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 
 export interface Params {
   activeSectionDefault?: number;
@@ -32,7 +32,7 @@ export const useScrollSpy = (params: Params) => {
       // Needs to be a valid DOM Element
       if (!section || !(section instanceof Element)) continue;
       // GetBoundingClientRect returns values relative to viewport
-      if (section.getBoundingClientRect().top + offsetPx < 0) {
+      if (section.getBoundingClientRect().top + offsetPx <= 0) {
         currentSectionId = i;
         continue;
       }
@@ -42,6 +42,29 @@ export const useScrollSpy = (params: Params) => {
 
     setActiveSection(currentSectionId);
   });
+
+  const scrollIntoView = useCallback(
+    (el: Element) => {
+      el.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
+
+      const promise = new Promise<boolean>((resolve) => {
+        setTimeout(() => {
+          resolve(true);
+        }, 1000);
+      });
+
+      promise.then(() => {
+        handle();
+      });
+    },
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
 
   useEffect(() => {
     const scrollable = scrollingElement?.current ?? window;
@@ -55,5 +78,5 @@ export const useScrollSpy = (params: Params) => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  return activeSection;
+  return [activeSection, scrollIntoView] as const;
 };

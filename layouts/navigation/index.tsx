@@ -16,10 +16,11 @@ import Logo from "./components/logo";
 
 type Props = {
   children?: React.ReactNode;
+  scrollIntoView: (el: Element) => void;
 };
 
 export const Navigation: React.FC<Props> = (props) => {
-  const {} = props;
+  const { scrollIntoView } = props;
 
   const { setRoute } = useNavigationStore();
   const { isDark, toggleTheme } = useThemeStore(({ isDark, toggleTheme }) => ({
@@ -71,18 +72,26 @@ export const Navigation: React.FC<Props> = (props) => {
 
   return (
     <>
-      <MobileDrawer />
+      <MobileDrawer scrollIntoView={scrollIntoView} />
       <NavigationContainer className="container">
         <div className="flex items-stretch gap-4 h-28">
           <AnimatedBulb ref={bulbRef} onClick={(e) => toggleTheme()} />
           <Logo />
         </div>
         <nav className="items-center hidden w-7/12 select-none lg:flex justify-evenly text-heading-4">
-          <Link route="/home" text="Home" />
-          <Link route="/about" text="About" />
-          <Link route="/experience" text="Experience" />
-          <Link route="/projects" text="Projects" />
-          <Link route="/tools" text="Tools" />
+          <Link scrollIntoView={scrollIntoView} route="/home" text="Home" />
+          <Link scrollIntoView={scrollIntoView} route="/about" text="About" />
+          <Link
+            scrollIntoView={scrollIntoView}
+            route="/experience"
+            text="Experience"
+          />
+          <Link
+            scrollIntoView={scrollIntoView}
+            route="/projects"
+            text="Projects"
+          />
+          <Link scrollIntoView={scrollIntoView} route="/tools" text="Tools" />
         </nav>
         <Hamburger />
       </NavigationContainer>

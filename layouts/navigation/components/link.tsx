@@ -11,21 +11,24 @@ type LinkProps = {
   route: string;
   children?: React.ReactNode;
   className?: string;
+  scrollIntoView: (el: Element) => void;
 };
 
 export const Link: React.FC<LinkProps> = (props) => {
-  const { className = "" } = props;
+  const { className = "", scrollIntoView } = props;
   const { route, setRoute } = useNavigationStore();
   const { setDrawerOpen } = useNavigationDrawer();
 
   const handler = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
       e.preventDefault();
-      scrollIntoview(props.route.replace("/", ""));
+      const element = document.getElementById(props.route.replace("/", ""));
+      if (element) scrollIntoView(element);
+
       setDrawerOpen(false);
       setRoute(props.route.replace("/", "") as Routes);
     },
-    [props.route, setDrawerOpen, setRoute]
+    [props.route, scrollIntoView, setDrawerOpen, setRoute]
   );
 
   return (
@@ -41,9 +44,4 @@ export const Link: React.FC<LinkProps> = (props) => {
       {props.text}
     </a>
   );
-};
-
-const scrollIntoview = (id: string) => {
-  const element = document.getElementById(id);
-  element?.scrollIntoView({ behavior: "smooth" });
 };

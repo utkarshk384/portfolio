@@ -49,7 +49,6 @@ export default function RootLayout(props: Props) {
     <html lang="en" style={fontVariables}>
       <SideEffects />
       <body className="bg-base-100 !pointer-events-auto transition-all duration-200 ease-linear">
-        <Navigation />
         <Providers>{children}</Providers>
       </body>
     </html>
