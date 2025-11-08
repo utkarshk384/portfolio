@@ -51,9 +51,13 @@ const Animation: GsapContextFn<HTMLDivElement> = (ctx, ref) => {
       trigger: ref.current,
       pin: true,
       markers: false,
+      fastScrollEnd: true,
       pinSpacing: false,
       scrub: 1,
-      snap: 1 / experiences.length - 1,
+      snap: {
+        snapTo: 1 / experiences.length - 1,
+        directional: false,
+      },
       end: () => "+=" + ref.current.offsetWidth,
     },
   });

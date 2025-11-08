@@ -16,10 +16,11 @@ import * as wave from "@/animations/wave.json";
 
 type Props = {
   children?: React.ReactNode;
+  scrollIntoView: (el: Element) => void;
 };
 
 export const MobileDrawer: React.FC<Props> = (props) => {
-  const {} = props;
+  const { scrollIntoView } = props;
 
   /* Stores */
   const { isDrawerOpen, setDrawerOpen } = useNavigationDrawer();
@@ -56,15 +57,36 @@ export const MobileDrawer: React.FC<Props> = (props) => {
         onMount={onMountAnimation}
       >
         <div className="flex flex-col items-center gap-10 p-4 text-subheading-2">
-          <Link className="mobile-links" route="/home" text="Home" />
-          <Link className="mobile-links" route="/about" text="About" />
           <Link
+            scrollIntoView={scrollIntoView}
+            className="mobile-links"
+            route="/home"
+            text="Home"
+          />
+          <Link
+            scrollIntoView={scrollIntoView}
+            className="mobile-links"
+            route="/about"
+            text="About"
+          />
+          <Link
+            scrollIntoView={scrollIntoView}
             className="mobile-links"
             route="/experience"
             text="Experience"
           />
-          <Link className="mobile-links" route="/projects" text="Projects" />
-          <Link className="mobile-links" route="/tools" text="Tools" />
+          <Link
+            scrollIntoView={scrollIntoView}
+            className="mobile-links"
+            route="/projects"
+            text="Projects"
+          />
+          <Link
+            scrollIntoView={scrollIntoView}
+            className="mobile-links"
+            route="/tools"
+            text="Tools"
+          />
         </div>
 
         <div className="absolute left-0 flex flex-col w-full -bottom-10">

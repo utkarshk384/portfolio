@@ -34,7 +34,7 @@ const Animation = (
     scrollTrigger: {
       trigger: ref.current,
       scrub: 0,
-      markers: true,
+      markers: false,
       start: "top 25%",
       end: "75% top",
     },
